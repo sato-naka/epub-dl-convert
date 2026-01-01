@@ -49,7 +49,6 @@ while (( START <= TOTAL_CHAPTERS )); do
 
   RANGE_URL="${URL}[${START}-${END}]"
   OUT_FILE="${NCODE}_vol${VOL}_${START}-${END}"
-  # OUT_FILE="${TITLE}(${AUTHOR})_${VOL}"
 
   echo "Generating volume $VOL: $START-$END"
 
