@@ -12,8 +12,8 @@
 - 縦書き表示に対応したEPUB生成
 
 用途としては、  
-✔ web小説をEPUB化したい 
-✔ Kindle や EPUBリーダーで縦書き表示したい
+- ✔ web小説をEPUB化したい 
+- ✔ Kindle や EPUBリーダーで縦書き表示したい
 といったケースに最適です。
 
 ---
@@ -43,14 +43,18 @@ pipx install fanficfare
 
 ### 2. スクリプト実行
 
+```
 ./epub-dl-conv.sh <URL> [分割数]
+```
 
 - `<URL>`：対象小説のトップページ  
 - `[分割数]`：1巻あたりの話数（省略時はデフォルト50）
 
 例:
 
-./epub-dl-conv.sh https://ncode.syosetu.com/****** 100
+```
+./epub-dl-conv.sh https://ncode.syosetu.com/***** 100
+```
 
 - 1〜100話 → 第一巻  
 - 101〜200話 → 第二巻  
