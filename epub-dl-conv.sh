@@ -86,11 +86,24 @@ while (( START <= TOTAL_CHAPTERS )); do
   cd "$tmp"
 
   # mimetype を最初に、無圧縮
-  zip -qX0 "../$OUTPUT_FOLDER/$OUTPUT_TITLE.epub" mimetype
+  zip -qX0 "../${OUTPUT_FOLDER}/${OUTPUT_TITLE}_pre.epub" mimetype
 
   # 残りを圧縮して追加
-  zip -qXr9D "../$OUTPUT_FOLDER/$OUTPUT_TITLE.epub" . -x mimetype
+  zip -qXr9D "../${OUTPUT_FOLDER}/${OUTPUT_TITLE}_pre.epub" . -x mimetype
 
+  cd "../${OUTPUT_FOLDER}"
+
+  # タイトルを修正
+  # ebook-meta \
+  #   "${OUTPUT_TITLE}_pre.epub" \
+  #   --title="${OUTPUT_TITLE}" > /dev/null 2>&1
+  # 表紙を生成
+  ebook-convert \
+    "${OUTPUT_TITLE}_pre.epub" \
+    "${OUTPUT_TITLE}.epub" > /dev/null 2>&1
+
+  # 変換前のファイルを削除
+  rm "${OUTPUT_TITLE}_pre.epub"
   cd ../
 
   START=$(( END + 1 ))
