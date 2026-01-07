@@ -81,7 +81,7 @@ while (( START <= TOTAL_CHAPTERS )); do
   "$OPF_FILE"
 
   # 再圧縮
-  OUTPUT_TITLE="${TITLE}(${AUTHOR})_${VOL}"
+  OUTPUT_TITLE="【${VOL}】${TITLE}"
 
   cd "$tmp"
 
